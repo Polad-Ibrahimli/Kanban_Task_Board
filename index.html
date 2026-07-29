@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div class="project-title">
+            <span>K</span>
+            <h1>Kanban İdarəetmə</h1>
+        </div>
+
+        <div class="header-actions">
+            <input class="task-search" placeholder="Tapşırıq axınında axtar...">
+            <select class="priority-filter">
+                <option value="all">Bütün prioritetlər</option>
+                <option value="low">Aşağı</option>
+                <option value="medium">Orta</option>
+                <option value="high">Yüksək</option>
+            </select>
+        
+            <button class="add-task-btn">+ Yeni tapşırıq</button>
+        </div>
+    </header>
+
+
+    <div class="board">
+        <div class="column" data-column="to-do">
+            <div class="column-header">
+                <div class="dotntitle">
+                    <span class="dot dot-todo"></span>
+                    <span>Gözləmədə</span>
+                </div>
+                <span class="task-count">0</span>
+            </div>
+
+            <div class="task-list">
+                <div class="empty-state">
+                    Burada tapşırıq yoxdur.
+                </div>
+            </div>
+        </div>
+
+        <div class="column" data-column="in-progress">
+            <div class="column-header">
+                <div class="dotntitle">
+                    <span class="dot dot-progress"></span>
+                    <span>İcra olunur</span>
+                </div>
+
+                <span class="task-count">0</span>
+            </div>
+
+            <div class="task-list">
+                <div class="empty-state">
+                    Burada tapşırıq yoxdur.
+                </div>
+            </div>
+        </div>
+
+        <div class="column" data-column="done">
+            <div class="column-header">
+                <div class="dotntitle">
+                    <span class="dot dot-done"></span>
+                    <span>Tamamlandı</span>
+                </div>
+                <span class="task-count">0</span>
+            </div>
+
+            <div class="task-list">
+                <div class="empty-state">
+                    Burada tapşırıq yoxdur.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal">
+        <div class="modal-content">
+            <h2>Yeni tapşırıq</h2>
+
+            <label for="title">Başlıq *</label>
+            <input id="title" placeholder="Məs: API inteqrasiyası">
+
+            <label for="description">Açıqlama</label>
+            <textarea id="description" placeholder="Tapşırıq haqqında qısa qeyd..."></textarea>
+
+            <label for="priority">Prioritet dərəcəsi</label>
+            <select id="priority">
+                <option value="low">Aşağı</option>
+                <option value="medium">Orta</option>
+                <option value="high">Yüksək</option>
+            </select>
+            
+            <div class="modal-actions">
+                <button class="cancel-btn">Ləğv et</button>
+                <button class="save-btn">Yadda saxla</button>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

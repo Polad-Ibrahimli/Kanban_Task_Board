@@ -1,0 +1,183 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box;
+    font-family:"Inter";
+}
+
+.board{
+    width:80%;
+    height:70vh;
+    padding:20px;
+    gap:40px;
+    display:flex;
+    margin:0 auto; /*This means top, bottom margin are 0, but left,right are auto, and browser decides how do divide empty space*/
+}
+.column{
+    background-color: aliceblue;
+    border-radius:8px;
+    padding:10px;
+    flex:1;
+}
+
+header{
+    background-color: azure;
+    width:80%;
+    border-radius:8px;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin:0 auto;
+    margin-top:20px;
+}
+.project-title{
+    display:flex;
+    font-size:7px;;
+}
+.project-title span{
+    font-size:20px;
+    border-radius:8px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-weight:bold;
+    background-color: blue;
+    width:60px;
+}
+.header-actions>*{
+    padding:5px;
+    border-radius:8px;
+    font-family: inherit;
+}
+.header-actions .add-task-btn{
+    background-color: blue;
+    color:white;
+}
+.column-header{
+    display:flex;
+    justify-content: space-between;
+    border-bottom:2px solid gray;
+    box-shadow:2px 0px 3px 3px gray;
+    padding:10px;
+}
+.dot{
+    display:inline-block;
+    border-radius:50%;
+    width:8px;
+    height:8px;
+}
+.dot-todo{
+    background-color: rgb(45, 34, 34);
+}
+.dot-progress{
+    background-color: orange;
+}
+.dot-done{
+    background-color: rgb(20, 214, 68);
+}
+.column-header .task-count{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(199, 223, 223);
+    width:30px;
+    height:30px;
+    border-radius:80px;
+    color:black;
+}
+
+.empty-state{
+    height:16vh;
+    border-radius:10px;
+    margin-top:10px;
+    border:1px dashed gray;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.task-list {
+    min-height: 100px;
+}
+
+
+.task-card {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    margin-top:10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.priority-badge{
+    padding:4px 6px;
+    text-transform: uppercase;
+    border-radius:8px;
+    font-size:11px;
+}
+.priority-low{background-color:aquamarine;color:rgb(23, 81, 62)}
+.priority-medium{background-color: rgb(245, 46, 46);color:rgb(119, 23, 23)}
+.priority-high{background-color: rgb(52, 138, 250);color: rgb(14, 14, 142);}
+
+.task-card-title{
+    font-size:15px;
+    font-weight:bold;
+}
+.task-card-desc{
+    font-size:12px;
+}
+.task-card-footer{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    font-size:12px;
+}
+.task-card-footer .actions button{
+    border:none;
+    background: none;
+    cursor: point;
+}
+
+
+.modal{
+    display:none;
+    background: rgba(0,0,0,0.4);
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    justify-content: center;
+    align-items:center;
+}
+.modal.active{
+    display:flex;
+}
+.modal-content{
+    font-family: inherit;
+    background-color: white;
+    display:flex;
+    flex-direction:column;
+    width:20%;
+    padding:15px;
+    border-radius:8px;
+    gap:10px;
+}
+.modal-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+}
+.modal-content #title{border-radius:4px;padding:5px;}
+.modal-content #description{border-radius:8px;padding:5px;}
+.modal-content #priority{border-radius:4px;padding:10px;}
+
+.cancel-btn { background: #e5e7eb; border: none; padding: 8px 16px; border-radius: 6px; }
+.save-btn { background: #4f46e5; color: white; border: none; padding: 8px 16px; border-radius: 6px; }
+
+.task-card.dragging {
+    opacity: 0.5;
+}
+.task-list.drag-over {
+    outline: 2px dashed #4f46e5;
+    outline-offset: -4px;
+}
