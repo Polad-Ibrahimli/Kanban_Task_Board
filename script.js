@@ -200,3 +200,23 @@ function loadFromStorage() {
     const saved = localStorage.getItem('kanbanTasks');
     return saved ? JSON.parse(saved) : [];
 }
+
+
+
+
+// ---- SEARCH & FILTER ----
+function applyFilters() {
+    const keyword = searchInput.value.trim().toLowerCase();
+    const priority = priorityFilter.value;
+
+    const filtered = allTasks.filter(task => {
+        const matchesKeyword = task.title.toLowerCase().includes(keyword);
+        const matchesPriority = (priority === "all") || (task.priority === priority);
+        return matchesKeyword && matchesPriority;
+    });
+
+    render(filtered);
+}
+
+searchInput.addEventListener("input", applyFilters);
+priorityFilter.addEventListener("change", applyFilters);
