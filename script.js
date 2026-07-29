@@ -1,4 +1,4 @@
-var allTasks=[];
+var allTasks = loadFromStorage();
 let editingId=null;
 let draggedId=null;
 
@@ -54,6 +54,7 @@ function render(tasks=allTasks){
         })
 
     })
+    saveToStorage();
 
 }
 render();
@@ -187,3 +188,15 @@ columns.forEach(column => {
         draggedTaskId = null;
     });
 });
+
+
+
+// ---- LOCAL STORAGE ----
+function saveToStorage() {
+    localStorage.setItem('kanbanTasks', JSON.stringify(allTasks));
+}
+
+function loadFromStorage() {
+    const saved = localStorage.getItem('kanbanTasks');
+    return saved ? JSON.parse(saved) : [];
+}
