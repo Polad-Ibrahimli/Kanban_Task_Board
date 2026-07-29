@@ -39,8 +39,8 @@ function render(tasks=allTasks){
 
             card.innerHTML = `
                 <span class="priority-badge priority-${task.priority}">${task.priority}</span>
-                <div class="task-card-title">${task.title}</div>
-                <div class="task-card-desc">${task.description}</div>
+                <div class="task-card-title">${escapeHTML(task.title)}</div>
+                <div class="task-card-desc">${escapeHTML(task.description)}</div>
                 <div class="task-card-footer">
                     <span>${task.createdAt}</span>
                     <div class="actions">
@@ -220,3 +220,11 @@ function applyFilters() {
 
 searchInput.addEventListener("input", applyFilters);
 priorityFilter.addEventListener("change", applyFilters);
+
+
+// ---- XSS PROTECTION ----
+function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
