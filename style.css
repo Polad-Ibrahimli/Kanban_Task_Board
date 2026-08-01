@@ -127,6 +127,8 @@ header{
 }
 .task-card-desc{
     font-size:12px;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 .task-card-footer{
     display:flex;
@@ -177,6 +179,7 @@ header{
 .task-card.dragging {
     opacity: 0.5;
 }
+
 .task-list.drag-over {
     outline: 2px dashed #4f46e5;
     outline-offset: -4px;
@@ -230,5 +233,32 @@ header{
     }
     .column {
         margin-bottom: 20px;
+    }
+    .modal-content{
+        width:70%;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .task-card {
+        padding: 8px;
+    }
+    .task-card-title {
+        font-size: 13px;
+    }
+    .task-card-desc {
+        font-size: 11px;
+    }
+    .priority-badge {
+        font-size: 10px;
+        padding: 3px 5px;
+    }
+    .task-card-footer {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .modal-contents{
+        width:80%;
     }
 }
