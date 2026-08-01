@@ -117,7 +117,7 @@ saveBtn.addEventListener("click",()=>{
             description,
             priority,
             column:"to-do",
-            createdAt:new Date().toLocaleDateString("en-Us",{month:"2-digit",day:"2-digit"})
+            createdAt: new Date().toLocaleDateString("az-AZ", { day: "2-digit", month: "2-digit", year: "numeric" })
 
         };
         allTasks.push(newTask);
