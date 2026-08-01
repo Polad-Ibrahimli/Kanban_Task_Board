@@ -39,8 +39,8 @@ function render(tasks=allTasks){
 
             card.innerHTML = `
                 <span class="priority-badge priority-${task.priority}">${task.priority}</span>
-                <div class="task-card-title">${escapeHTML(task.title)}</div>
-                <div class="task-card-desc">${escapeHTML(task.description)}</div>
+                <div class="task-card-title"></div>
+                <div class="task-card-desc"></div>
                 <div class="task-card-footer">
                     <span>${task.createdAt}</span>
                     <div class="actions">
@@ -49,6 +49,10 @@ function render(tasks=allTasks){
                     </div>
                 </div>
             `;
+
+            card.querySelector(".task-card-title").textContent=task.title;
+            card.querySelector(".task-card-desc").textContent=task.description;
+
             taskList.appendChild(card);
 
         })
@@ -91,7 +95,7 @@ saveBtn.addEventListener("click",()=>{
         return;
     }
 
-    const isDuplicate=allTasks.some(t=>t.title.toLowerCase()===title.toLowerCase()&&t.id!==editingId);
+    const isDuplicate=allTasks.some(t=>t.title.toLowerCase()===title.toLowerCase() && t.id!==editingId);
 
     if(isDuplicate){
         alert("Bu adda tapşırıq artıq mövcuddur!");
@@ -202,8 +206,6 @@ function loadFromStorage() {
 }
 
 
-
-
 // ---- SEARCH & FILTER ----
 function applyFilters() {
     const keyword = searchInput.value.trim().toLowerCase();
@@ -222,9 +224,3 @@ searchInput.addEventListener("input", applyFilters);
 priorityFilter.addEventListener("change", applyFilters);
 
 
-// ---- XSS PROTECTION ----
-function escapeHTML(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-}
